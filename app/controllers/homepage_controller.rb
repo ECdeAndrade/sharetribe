@@ -253,6 +253,7 @@ class HomepageController < ApplicationController
   end
 
   def filter_range(price_min, price_max)
+    logger.info "PRICE:#{price_min} #{price_max}"
     if (price_min && price_max)
       min = MoneyUtil.parse_str_to_money(price_min, @current_community.currency).cents
       max = MoneyUtil.parse_str_to_money(price_max, @current_community.currency).cents
